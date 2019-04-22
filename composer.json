@@ -15,7 +15,6 @@
             "email":"712042812@qq.com"
         }
     ],
-    
     "require":{
         "yiisoft/yii2":"*",
         "yiisoft/yii2-redis":"~2.0.0"
