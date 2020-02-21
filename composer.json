@@ -21,7 +21,7 @@
     },
     "autoload":{
         "psr-4":{
-            "makcent\\queue\\":"src"
+            "makcent\\yii2-queue\\":"src"
         }
     }
 }
