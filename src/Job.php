@@ -1,6 +1,7 @@
 <?php
-namespace makcent\queue;;
+namespace makcent\queue;
 use Yii;
+
 class Job
 {
     protected $queueObject;

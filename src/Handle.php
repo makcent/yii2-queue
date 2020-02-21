@@ -1,8 +1,8 @@
 <?php
-namespace makcent\queue;
+namespace  makcent\queue;
 use Yii;
 use yii\base\Component;
-abstract class BaseQueue extends Component
+abstract class Handle extends Component
 {
     /**
      * @var string Queue prefix

@@ -1,8 +1,8 @@
 {
-    "name":"makcent/queue",
+    "name":"makcent/yii2-queue",
     "type":"yii2-extension",
-    "description":"The Async mailer for the Yii framework",
-    "keyword":["yii2","redis","async","queue"],
+    "description":"The queue extension for the Yii framework \n Base code from fecshop/yii2-fec",
+    "keyword":["yii2","queue","extension", "message"],
     "license":"MIT",
     "support":{
         "issues":"https://github.com/makcent/yii2-queue/issues",
@@ -15,11 +15,10 @@
             "email":"712042812@qq.com"
         }
     ],
+    "minimum-stability": "dev",
     "require":{
-        "yiisoft/yii2":"*",
-        "yiisoft/yii2-redis":"~2.0.0"
+        "yiisoft/yii2":"*"
     },
-   
     "autoload":{
         "psr-4":{
             "makcent\\queue\\":"src"

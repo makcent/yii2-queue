@@ -1,31 +1,15 @@
 <?php
-/**
- * FecShop file.
- *
- * @link http://www.fecshop.com/
- * @copyright Copyright (c) 2016 FecShop Software LLC
- * @license http://www.fecshop.com/license/
- */
+
 namespace makcent\queue;
 use Yii;
 use yii\base\InvalidConfigException;
 use yii\redis\Connection;
-use makcent\queue\BaseQueue;
+use makcent\queue\Hendle;
 use makcent\queue\Job;
-/**
- * @author Terry Zhao <2358269014@qq.com>
- * @since 1.0
- */
-class RedisQueue extends Queue
+
+class Queue extends Hendle
 {
-	
-	/**
-	 *   'queue' => [
-     *       'class' => 'fec\component\RedisQueue',
-     *   ],
-	 *
-	 */
-	
+
     /**
      * @var string Default redis component name
      */
@@ -57,9 +41,8 @@ class RedisQueue extends Queue
     {
         $payload = $this->redis->lpop($this->getQueue($queue));
         if ($payload) {
-            //$this->redis->zadd($queue.':reserved', $this->getTime() + 60, $job);
             return new Job($this, $payload, $queue);
         }
         return null;
     }
-} 
+}
