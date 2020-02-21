@@ -33,9 +33,9 @@ abstract class Handle extends Component
      * @param string|null $queue Queue name
      * @return string ID of the job
      */
-    public function push($job, $data = null, $queue = null, $options = [])
+    public function push($job, $queue = null)
     {
-        return $this->pushInternal($this->createPayload($job, $data), $queue, $options);
+        return $this->pushInternal($this->createPayload($job), $queue);
     }
     /**
      * Get job from the queue
@@ -54,11 +54,10 @@ abstract class Handle extends Component
      * @param mixed $data Data for the job
      * @return array
      */
-    protected function createPayload($job, $data)
+    protected function createPayload($job)
     {
         $payload = [
-            'job'  => $job,
-            'data' => $data
+            'job'  => serialize($job),
         ];
         $payload = $this->setMeta($payload, 'id', $this->getRandomId());
         return $payload;
@@ -104,7 +103,7 @@ abstract class Handle extends Component
      *
      * @return mixed
      */
-    abstract protected function pushInternal($payload, $queue = null, $options = []);
+    abstract protected function pushInternal($payload, $queue = null);
     /**
      * Class-specific realisation of getting the job to the queue
      *

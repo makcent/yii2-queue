@@ -31,7 +31,7 @@ class Queue extends Handle
             throw new InvalidConfigException("Queue::redis must be either a Redis connection instance or the application component ID of a Redis connection.");
         }
     }
-    protected function pushInternal($payload, $queue = null, $options = [])
+    protected function pushInternal($payload, $queue = null)
     {
         $this->redis->rpush($this->getQueue($queue), $payload);
         $payload = json_decode($payload, true);

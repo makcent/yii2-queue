@@ -23,15 +23,7 @@ class Job
     }
     protected function resolveAndRun(array $payload)
     {
-        list($class, $method) = $this->resolveJob($payload['job']);
-        $instance = Yii::createObject([
-            'class' => $class
-        ]);
-        $instance->{$method}($this, $payload['data']);
-    }
-    protected function resolveJob($job)
-    {
-        $segments = explode('@', $job);
-        return count($segments) > 1 ? $segments : array($segments[0], 'run');
+        $instance = unserialize($payload['job']);
+        $instance->execute();
     }
 }
