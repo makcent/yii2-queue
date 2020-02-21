@@ -7,7 +7,7 @@ use yii\redis\Connection;
 use makcent\queue\Hendle;
 use makcent\queue\Job;
 
-class Queue extends Hendle
+class Queue extends Handle
 {
 
     /**
